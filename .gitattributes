@@ -1,0 +1,13 @@
+*.css text eol=lf
+# Keep LF line endings for specific files
+backend/node_modules/mongoose/scripts/tsc-diagnostics-check.js text eol=lf
+backend/node_modules/mongoose/tools/auth.js text eol=lf
+# ... add similar rules for other affected files
+# Keep LF line endings for specific BSON library files
+backend/node_modules/mongoose/node_modules/bson/lib/ensure_buffer.js text eol=lf
+backend/node_modules/mongoose/node_modules/bson/lib/error.js text eol=lf
+backend/node_modules/mongoose/node_modules/bson/lib/extended_json.js text eol=lf
+backend/node_modules/mongoose/node_modules/bson/lib/int_32.js text eol=lf
+backend/node_modules/mongoose/node_modules/bson/lib/long.js text eol=lf
+# Specify line endings for README.md
+README.md text eol=lf
