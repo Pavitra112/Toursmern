@@ -19,7 +19,7 @@ app.use((req, res, next) => {
 
 //for testing
 app.get('/', (req, res) => {
-   res.send('API is working'+process.env.MONGO_URI)
+   res.send('API is working')
 })
 
 //database connection
