@@ -19,35 +19,23 @@ app.use((req, res, next) => {
 
 //for testing
 app.get('/', (req, res) => {
-  mongoose.set("strictQuery", false)
-const connect = async(res) => {
+  res.send("api is working")
+})
+
+//database connection
+mongoose.set("strictQuery", false)
+const connect = async() => {
    try {
       await mongoose.connect(process.env.MONGO_URI, {
          useNewUrlParser: true,
          useUnifiedTopology: true
       })
 
-      res.send('MongoDB connected')
+      console.log('MongoDB connected')
    } catch (error) {
-      res.send('MongoDB connected failed')
+      console.log('MongoDB connected failed')
    }
 }
-})
-
-//database connection
-// mongoose.set("strictQuery", false)
-// const connect = async() => {
-//    try {
-//       await mongoose.connect(process.env.MONGO_URI, {
-//          useNewUrlParser: true,
-//          useUnifiedTopology: true
-//       })
-
-//       console.log('MongoDB connected')
-//    } catch (error) {
-//       console.log('MongoDB connected failed')
-//    }
-// }
 
 
 //middleware
