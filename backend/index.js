@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 })
 
 //database connection
-mongoose.connect(process.env.MONGO_URI)
+await mongoose.connect(process.env.MONGO_URI)
 // mongoose.set("strictQuery", false)
 // const connect = async() => {
 //    try {
