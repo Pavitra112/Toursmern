@@ -11,3 +11,5 @@ backend/node_modules/mongoose/node_modules/bson/lib/int_32.js text eol=lf
 backend/node_modules/mongoose/node_modules/bson/lib/long.js text eol=lf
 # Specify line endings for README.md
 README.md text eol=lf
+frontend/node_modules/.bin/* -text
+
