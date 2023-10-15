@@ -16,7 +16,10 @@ const corsOptions = {
    origin: true,
    credentials: true
 }
-
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://toursmern.vercel.app');
+  next();
+});
 //for testing
 app.get('/', (req, res) => {
    res.send('API is working')
