@@ -41,10 +41,10 @@ const connect = async() => {
 //middleware
 app.use(express.json())
 app.use(cookieParser())
-app.use("/auth", authRoute)
-app.use("/tours", tourRoute)
-app.use("/review", reviewRoute)
-app.use("/booking", bookingRoute)
+app.use("api/v1/auth", authRoute)
+app.use("api/v1/tours", tourRoute)
+app.use("api/v1/review", reviewRoute)
+app.use("api/v1/booking", bookingRoute)
 
 app.listen(port, () => {
    connect()
