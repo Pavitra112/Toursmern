@@ -1,7 +1,7 @@
 import express  from "express";
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-
+import cors from 'cors'
 import cookieParser from "cookie-parser";
 import tourRoute from './routes/tours.js'
 // import userRoute from './routes/users.js'
@@ -12,30 +12,35 @@ import bookingRoute from './routes/bookings.js'
 dotenv.config()
 const app = express()
 const port = process.env.PORT || 8000
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://toursmern.vercel.app');
-  next();
-});
-
+// app.use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', 'https://toursmern.vercel.app');
+//   next();
+// });
+app.use(cors({
+  origin : ["https://toursmern.vercel.app"],
+  methods : ["POST","GET"],
+  credentials : true
+}))
 //for testing
 app.get('/', (req, res) => {
   res.send("api is working")
 })
 
 //database connection
-mongoose.set("strictQuery", false)
-const connect = async() => {
-   try {
-      await mongoose.connect(process.env.MONGO_URI, {
-         useNewUrlParser: true,
-         useUnifiedTopology: true
-      })
+mongoose.connect(process.env.MONGO_URI)
+// mongoose.set("strictQuery", false)
+// const connect = async() => {
+//    try {
+//       await mongoose.connect(process.env.MONGO_URI, {
+//          useNewUrlParser: true,
+//          useUnifiedTopology: true
+//       })
 
-      console.log('MongoDB connected')
-   } catch (error) {
-      console.log('MongoDB connected failed')
-   }
-}
+//       console.log('MongoDB connected')
+//    } catch (error) {
+//       console.log('MongoDB connected failed')
+//    }
+// }
 
 
 //middleware
