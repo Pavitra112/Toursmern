@@ -1,7 +1,7 @@
 import express  from "express";
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-import cors from 'cors'
+// import cors from 'cors'
 import cookieParser from "cookie-parser";
 import tourRoute from './routes/tours.js'
 // import userRoute from './routes/users.js'
@@ -12,15 +12,14 @@ import bookingRoute from './routes/bookings.js'
 dotenv.config()
 const app = express()
 const port = process.env.PORT || 8000
-// app.use((req, res, next) => {
-//   res.setHeader('Access-Control-Allow-Origin', 'https://toursmern.vercel.app');
-//   next();
-// });
-app.use(cors({
-  origin : ["https://toursmern.vercel.app"],
-  methods : ["POST","GET"],
-  credentials : true
-}))
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://toursmern.vercel.app');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 //for testing
 app.get('/', (req, res) => {
   res.send("api is working")
