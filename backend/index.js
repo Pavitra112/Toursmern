@@ -13,14 +13,7 @@
 // const app = express()
 // const port = process.env.PORT || 8000
 
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', 'https://toursmern.vercel.app');
-//   res.header('Access-Control-Allow-Credentials', 'true');
-//   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-//   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-//   res.header('X-Content-Type-Options', 'nosniff');
-//   next();
-// });
+
 // //for testing
 // app.get('/', (req, res) => {
 //   res.send("api is working")
@@ -74,11 +67,17 @@ const port = process.env.PORT || 8000
 //    credentials: true
 // }
 
-//for testing
-// app.get('/', (req, res) => {
-//    res.send('API is working')
-// })
-
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://toursmern.vercel.app');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('X-Content-Type-Options', 'nosniff');
+  next();
+});
+ app.get('/', (req, res) => {
+   res.send('API is working')
+})
 //database connection
 mongoose.set("strictQuery", false)
 const connect = async() => {
