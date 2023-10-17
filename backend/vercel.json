@@ -11,7 +11,7 @@
     ],
    
   "functions": {
-    "myFunction": {
+    "controllers/*.js": {
       "maxDuration": 30
     }
   }
